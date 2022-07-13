@@ -17,7 +17,7 @@ ui <- dashboardPage(
         sidebarMenu(
             menuItem("Home", tabName = "page1", icon = icon("home")),
             menuItem("Passengers", tabName = "page2", icon = icon("male")),
-            menuItem("Airlines", tabName = "page3", icon = icon("plane")),
+            menuItem("Carriers", tabName = "page3", icon = icon("plane")),
             menuItem("Airports", tabName = "page4", icon = icon("building")),
             menuItem("Dataset", tabName = "page5", icon = icon("table")),
             menuItem("About Us", tabName = "page6", icon = icon("info-circle"))
@@ -71,22 +71,33 @@ ui <- dashboardPage(
             tabItem(tabName = "page1",
                     img(src="plane.jpg",alt="Plane and Sunset", width='100%', height='100%'),
                     h1("Welcome to The Flight Board", align="center"),
-                    "Our team is developing The Flight Board using a dataset from Transportation.gov. The dataset contains 228,000 observations of travel between airport pair markets (departure airport – arrival airport) between 1993 and 2021. We have included the dataset's data elements in the PDF attached to this project plan.",
+                    ##Overview
+                    "The Flight Board has been designed to allow users to explore flight data from the perspectives of passengers, carriers, and airports. The data was sourced from Transportation.gov and contains 228,000 observations of travel between airport pairs (departure and arrival airports) between 1993 and 2021.",
                     br(),
                     br(),
-                    "We are choosing to approach the data set from three stakeholders' perspectives: passengers, airlines, and airports. We believe this reflects real-world use cases that often require the development of multiple visualizations for different stakeholder groups for various purposes from a shared data pool.",
+                    ##Goals
+                    "Our goals for this project include:",
                     br(),
                     br(),
-                    "Each of our identified stakeholder groups has different questions or problems for which they seek answers or insights. Our initial areas of focus are listed below."
+                    "1. To demonstrate to users that a single data set can be used for many different purposes and may be tailored to different target groups. Within The Flight Board, each of our identified stakeholder groups has different questions or problems for which they seek answers or insights.",
+                    br(),
+                    br(),
+                    "2. To encourage users to explore the data using their own selection of airports, carriers, airports, destinations, price ranges, and date ranges. The intent is to allow each individual to discover patterns and trends within the data that answer their own specific questions.",
+                    br(),
+                    br(),
+                    "3. To explore the various ways in which data may be visualized with the intent of discovering optimal visualizations choices that support users' exploration of the data."
                     ),
             
             tabItem(tabName = "page2",
                     h1("Passenger Dashboard"),
-                    "Using the dataset, we will develop visualizations aimed to provide customer insight on airfare, flight destination, number of passengers, etc., that will help in advanced travel planning and provide a different visual view of flights across the United States.",
+                    "It has been said that the journey of a thousand miles begins with a single step. The goal of our passenger dashboard is to help you decide where that first step might take you.",
+                    br(),
+                    br(),
+                    "On this page, you will find visualizations designed to provide you with insight on airfare, flight destination, number of passengers, etc., that will help you plan your travel in the United States. Please feel free to explore!",
                     br(),
                     br(),
                     box(title="Explore Travel Destinations",width=12,
-                     "Curious about where you can fly? Designate a starting airport to begin exploring possible destinations. You can also choose additional options including the maximum price you're willing to spend, your preferred airline carriers, and the time of year at which you'd like to travel!",
+                     "Curious about where you can fly? Designate a starting airport to begin exploring possible destinations. You can also choose additional options including the maximum price you're willing to spend, your preferred carriers, and the time of year at which you'd like to travel!",
                       br(),
                       br(),
                       fluidRow(
@@ -105,7 +116,7 @@ ui <- dashboardPage(
                     br(),
                     br(),
                     box(title="Explore Direct Flight Destinations",width=12,
-                        "Don't like layovers or multiple leg flights? You're not alone! Designate a starting airport below to see all possible destinations with direct flights. You can also choose additional options including your preferred airline carrier and the time of year at which you'd like to travel!",
+                        "Don't like layovers or multiple leg flights? You're not alone! Designate a starting airport below to see all possible destinations with direct flights. You can also choose additional options including your preferred carrier and the time of year at which you'd like to travel!",
                         br(),
                         br(),
                         fluidRow(
@@ -123,12 +134,15 @@ ui <- dashboardPage(
                     )
                     ),
             tabItem(tabName = "page3",
-                    h1("Airline Carrier Dashboard"),
-                    "The airline industry is a competitive environment, especially in those large metropolitan areas where there are multiple airports customers can choose from. We will explore the fares offered by different airlines at these different airports within the same city market. We will identify which airlines fly to these different airports. And then, we will look at the market share over specific city pairs over the years, see the difference in fares, and deduce passenger retention from the number of passengers. We will explore the myth suggesting airlines charge more in correlation to the distance and determine if the fares are tied to supply and demand instead.",
+                    h1("Carrier Dashboard"),
+                    "The airline industry is a competitive environment, especially in those large metropolitan areas where there are multiple airports customers can choose from. Our carrier dashboard allows you to explore which carriers fly in each airport and the fares offered by the various carriers at the multiple airports within the same city market.",
+                    br(),
+                    br(),
+                    "You can also examine the market share over specific city pairs over the years, seeing the difference in fares, and deducing passenger retention from the number of passengers. You can explore the myth that suggests that carriers' charges are correlated to the distance traveled and determine if the fares are instead tied to supply and demand.",
                     br(),
                     br(),
                     box(title="City Market Dashboard.",width=12,
-                        "For a given city market, identify associated airports, airlines, and fares by time of year. Designate a starting city market below to see all possible city market destinations with direct flights. You can also choose additional options including the year and quarter of the data that you'd like to explore",
+                        "For a given city market, identify associated airports, carriers, and fares by time of year. Designate a starting city market below to see all possible city market destinations with direct flights. You can also choose additional options including the year and quarter of the data that you'd like to explore",
                         br(),
                         br(),
                         fluidRow(
@@ -166,7 +180,7 @@ ui <- dashboardPage(
                     br(),
                     br(),
                     box(title="Airport Pair Dashboard",width=12,
-                        "For a given airport pair, explore the passenger totals per airline, how these have changed over time, and how the airfare rates have changed over time.",
+                        "For a given airport pair, explore the passenger totals per carrier, how these have changed over time, and how the airfare rates have changed over time.",
                         br(),
                         br(),
                         fluidRow(
@@ -192,7 +206,10 @@ ui <- dashboardPage(
                   ),
             tabItem(tabName = "page4",
                     h1("Airport Dashboard"),
-                    "Airports are designed to optimize both safety and effective operations. Understanding airline flight volumes and passenger counts allow the airport to optimize terminal and gate assignments, staffing requirements, and placement of amenities (e.g., restaurants, restrooms, transportation services). We will develop visualizations that provide insight into flight and passenger volumes. Further, we'd like to compare airports by flight volumes and passenger counts. These elements may be helpful for airports looking to compare services, contracts, or performance with airports of similar service loads.",
+                    "Airports are designed to optimize both safety and effective operations. If you were designing an aiport, understanding carrier flight volumes and passenger counts would allow you to optimize terminal and gate assignments, staffing requirements, and placement of amenities (e.g., restaurants, restrooms, transportation services). The Airport Dashboard visualizations allow you to explore flight and passenger volumes for insight.",
+                    br(),
+                    br(),
+                    "As you design your airport, you may also want to identify other airports that are similar to yours in terms of carriers served, flight volumes, and passenger counts. These elements may be helpful if you're looking to compare services, contracts, or performance with airports of similar service loads.",
                     br(),
                     br(),
                     box(title="Airport Expected Passenger Loads.",width=12,
@@ -315,19 +332,7 @@ ui <- dashboardPage(
 
 server <- function(input, output, session) {
 
-    
-    output$plot1 = renderPlot({
-        
-    })
-    
-    output$plot2 = renderPlotly({
-        
-    })
-    
-    output$myMap = renderLeaflet({
-        
-    })
-    
+  
     output$dataTable <- renderDataTable({
       return(datatable(data,rownames=FALSE))
     })
