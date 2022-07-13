@@ -289,22 +289,22 @@ ui <- dashboardPage(
                     box(title="Team 101",width=12,
                         fluidRow(
                           column(3,
-                                 img(src="imageplaceholder.png",alt="Eunice Tseng", width='100px'), align = "center",
+                                 img(src="Eunice.jpg",alt="Eunice Tseng", width='125px'), align = "center",
                                  h4("Eunice Tseng", align="center"),
                                  h6("ctseng14@jhu.edu", align="center")
                           ),
                           column(3,
-                                 img(src="imageplaceholder.png",alt="Patrick King", width='100px'), align="center",
+                                 img(src="imageplaceholder.png",alt="Patrick King", width='125px'), align="center",
                                  h4("Patrick King", align="center"),
                                  h6("pking19@jhu.edu", align="center")
                           ),
                           column(3,
-                                 img(src="imageplaceholder.png",alt="Timothy Sham", width='100px'), align="center",
+                                 img(src="Timothy.jpg",alt="Timothy Sham", width='125px'), align="center",
                                  h4("Timothy Sham", align="center"),
                                  h6("lsham1@jhu.edu", align="center")
                           ),
                           column(3,
-                                 img(src="imageplaceholder.png",alt="Todd Andrew", width='100px'), align="center",
+                                 img(src="Todd 2.jpeg",alt="Todd Andrew", width='125px'), align="center",
                                  h4("Todd Andrew", align="center"),
                                  h6("tandre15@jhu.edu", align="center")
                           )
